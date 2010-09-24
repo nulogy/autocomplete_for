@@ -34,6 +34,7 @@ Using autocomplete_for in your models to set belongs_to associations:
 Errors are generated automatically if the given information does not correspond to a valid model:
 
     author = Author.create! :login => 'baz'
-    post = Post.create! :author_login => 'quux'   # automatically adds an error to the 'author_login' field
+    post = Post.create :author_login => 'quux'
+    puts post.errors[:author_login]               # will print an error message
 
 Copyright (c) 2010 Nulogy Corporation, released under the MIT license
