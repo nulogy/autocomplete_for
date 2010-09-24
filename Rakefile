@@ -15,9 +15,10 @@ begin
     s.add_dependency('activerecord', '~> 2.3.4')
     s.add_development_dependency('pg')
   end
+  Jeweler::GemcutterTasks.new
 
 rescue LoadError
-  puts "Jeweler not available. Install it with: gem install jeweler"
+  puts "Jeweler or Gemcutter not available. Install it with: gem install jeweler gemcutter"
 end
 
 desc 'Default: run unit tests.'
