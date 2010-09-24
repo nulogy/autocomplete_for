@@ -12,7 +12,7 @@ begin
     s.homepage = "http://github.com/sskirby/autocomplete_for"
     s.rubyforge_project = 'autocomplete_for'
     s.authors = ["Sean Kirby"]
-    s.add_dependency('activerecord')
+    s.add_dependency('activerecord', '~> 2.3.4')
     s.add_development_dependency('pg')
   end
 
