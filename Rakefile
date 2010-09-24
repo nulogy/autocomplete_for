@@ -12,7 +12,7 @@ begin
     s.homepage = "http://github.com/sskirby/autocomplete_for"
     s.rubyforge_project = 'autocomplete_for'
     s.authors = ["Sean Kirby"]
-    s.add_dependency('activerecord', '>= 2.3.5')
+    s.add_dependency('activerecord')
     s.add_development_dependency('pg')
   end
 
@@ -36,6 +36,6 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'AutocompleteFor'
   rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README')
+  rdoc.rdoc_files.include('README.markdown')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
