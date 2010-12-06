@@ -4,12 +4,9 @@ module AutocompleteFor
   end
 
   module ClassMethods
-    def autocomplete_for association, field, options = {}, &block
-      allow_nil = options[:allow_nil] || false
-      validate :"validate_#{association}_by_#{field}"
-      before_validation :"associate_#{association}_by_#{field}"
-      instance_variable_set(:"@#{association}_#{field}_allow_nil", allow_nil)
 
+  private
+    def define_humanized_accessors association, field
       # method to set the name of the entity to autocomplete
       # def customer_name=(name)
       #   @customer_name = name
@@ -25,6 +22,26 @@ module AutocompleteFor
       define_method(:"#{association}_#{field}") do 
         send(association.to_sym) ? send(association.to_sym).send(field.to_sym) : instance_variable_get(:"@#{association}_#{field}")
       end
+    end
+
+    def define_suppress_if options
+      if options[:suppress_if]
+        define_method(:suppress_if, options[:suppress_if])
+      else
+        define_method(:suppress_if, Proc.new{false})
+      end
+    end
+
+  public
+    def autocomplete_for association, field, options = {}, &block
+      define_humanized_accessors association, field
+      define_suppress_if options
+
+      allow_nil = options[:allow_nil] || false
+      validate :"validate_#{association}_by_#{field}"
+      before_validation :"associate_#{association}_by_#{field}"
+      instance_variable_set(:"@#{association}_#{field}_allow_nil", allow_nil)
+
 
       # Validation method to make sure the autocompleted name resolves to an actual entity
       # def validate_customer_by_name
@@ -35,6 +52,7 @@ module AutocompleteFor
       #   self.errors.add :customer_name, "#{@customer_name} does not exist" 
       # end
       define_method(:"validate_#{association}_by_#{field}") do 
+        return if suppress_if
         return unless instance_variable_get(:"@#{association}_#{field}") 
         return if send(association.to_sym)
         return if self.class.instance_variable_get(:"@#{association}_#{field}_allow_nil") && instance_variable_get(:"@#{association}_#{field}") == ""
@@ -60,6 +78,8 @@ module AutocompleteFor
       #   autocomplete_find_customer_by_name
       # end
       define_method(:"associate_#{association}_by_#{field}") do
+        return if suppress_if
+
         return unless instance_variable_get(:"@#{association}_#{field}")
         if instance_variable_get(:"@#{association}_#{field}") == ''
           self.send(:"#{association}=", nil)
@@ -90,6 +110,7 @@ module AutocompleteFor
           #   self.errors.add_on_blank(:customer) unless @@customer_autocompolete_error_fields.any? {|ef| self.errors[ef]}
           # end
           define_method(:"validate_by_#{association}") do
+            return if suppress_if
             self.errors.add_on_blank(:"#{association}") unless self.class.instance_variable_get(error_fields_name).any? {|ef| self.errors[ef]}
           end
         end

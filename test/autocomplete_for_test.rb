@@ -28,6 +28,17 @@ class AutocompleteForTest < ActiveSupport::TestCase
     end
   end
 
+  class AutoCompleteForSuppressIfTestModel < ActiveRecord::Base
+    belongs_to :customer
+    autocomplete_for :customer, :name, :suppress_if => Proc.new {suppress?} do
+      self.customer = Customer.find(:first, :conditions => {:name => @customer_name})
+    end
+
+    def suppress?
+      true
+    end
+  end
+
   def setup
     Vendor.destroy_all
     Customer.destroy_all
@@ -145,5 +156,12 @@ class AutocompleteForTest < ActiveSupport::TestCase
 
     @autocomplete_for_customer.update_attributes! :customer_name => nil
     assert_equal @customer, @autocomplete_for_customer.customer
+  end
+
+  test "suppress_if suppress association" do
+    suppress_if_model = AutoCompleteForSuppressIfTestModel.new
+    suppress_if_model.update_attributes! :customer_name => @customer.name
+    assert_equal nil, suppress_if_model.customer
+    assert_equal true, suppress_if_model.valid?
   end
 end
