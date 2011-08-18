@@ -79,10 +79,8 @@ module AutocompleteFor
       unless allow_nil 
         # we must make sure that the validate_by_customer validation runs
         # after ALL validations on autocomplete fields
-        # see rails/activesupport/lib/active_support/callbacks.rb line #208
-        # probably won't work in Rails 3
-        @validate_callbacks.delete(:"validate_by_#{association}")
-        validate :"validate_by_#{association}" 
+        skip_callback :validate, :by, :"#{association}"
+        validate :"validate_by_#{association}"
         
         unless instance_methods.include?("validate_by_#{association}")
 
