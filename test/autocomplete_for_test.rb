@@ -49,27 +49,27 @@ class AutocompleteForTest < ActiveSupport::TestCase
     @autocomplete_for_vendor.update_attributes :vendor_name => "Not a Vendor Name"
 
     assert_nil @autocomplete_for_vendor.vendor
-    assert @autocomplete_for_vendor.errors.on(:vendor_name)
-    assert_nil @autocomplete_for_vendor.errors.on(:vendor_code)
-    assert_nil @autocomplete_for_vendor.errors.on(:vendor)
+    assert @autocomplete_for_vendor.errors[:vendor_name].any?
+    assert @autocomplete_for_vendor.errors[:vendor_code].empty?
+    assert @autocomplete_for_vendor.errors[:vendor].empty?
   end
 
   test "with blank name" do
     @autocomplete_for_vendor.update_attributes :vendor_name => ""
 
     assert_nil @autocomplete_for_vendor.vendor
-    assert @autocomplete_for_vendor.errors.on(:vendor_name)
-    assert_nil @autocomplete_for_vendor.errors.on(:vendor_code)
-    assert_nil @autocomplete_for_vendor.errors.on(:vendor)
+    assert @autocomplete_for_vendor.errors[:vendor_name].any?
+    assert @autocomplete_for_vendor.errors[:vendor_code].empty?
+    assert @autocomplete_for_vendor.errors[:vendor].empty?
   end
 
   test "with nil name" do
     @autocomplete_for_vendor.update_attributes :vendor_name => nil 
 
     assert_nil @autocomplete_for_vendor.vendor
-    assert @autocomplete_for_vendor.errors.on(:vendor)
-    assert_nil @autocomplete_for_vendor.errors.on(:vendor_code)
-    assert_nil @autocomplete_for_vendor.errors.on(:vendor_name)
+    assert @autocomplete_for_vendor.errors[:vendor].any?
+    assert @autocomplete_for_vendor.errors[:vendor_code].empty?
+    assert @autocomplete_for_vendor.errors[:vendor_name].empty?
   end
 
   test "should clear existing association" do
@@ -78,10 +78,10 @@ class AutocompleteForTest < ActiveSupport::TestCase
 
     @autocomplete_for_vendor.update_attributes :vendor_name => ""
     assert_nil @autocomplete_for_vendor.vendor
-    assert @autocomplete_for_vendor.errors.on(:vendor_name)
+    assert @autocomplete_for_vendor.errors[:vendor_name].any?
 
-    assert_nil @autocomplete_for_vendor.errors.on(:vendor_code)
-    assert_nil @autocomplete_for_vendor.errors.on(:vendor)
+    assert @autocomplete_for_vendor.errors[:vendor_code].empty?
+    assert @autocomplete_for_vendor.errors[:vendor].empty?
   end
 
   test "should not clear existing association" do
@@ -98,10 +98,10 @@ class AutocompleteForTest < ActiveSupport::TestCase
 
     @autocomplete_for_vendor.update_attributes :vendor_code => ""
     assert_nil @autocomplete_for_vendor.vendor
-    assert @autocomplete_for_vendor.errors.on(:vendor_code)
+    assert @autocomplete_for_vendor.errors[:vendor_code].any?
 
-    assert_nil @autocomplete_for_vendor.errors.on(:vendor_name)
-    assert_nil @autocomplete_for_vendor.errors.on(:vendor)
+    assert @autocomplete_for_vendor.errors[:vendor_name].empty?
+    assert @autocomplete_for_vendor.errors[:vendor].empty?
   end
 
   test "allow_nil with valid name" do
@@ -114,9 +114,9 @@ class AutocompleteForTest < ActiveSupport::TestCase
     @autocomplete_for_customer.update_attributes :customer_name => "Not A Customer Name" 
 
     assert_nil @autocomplete_for_customer.customer
-    assert @autocomplete_for_customer.errors.on(:customer_name)
-    assert_nil @autocomplete_for_customer.errors.on(:customer_code)
-    assert_nil @autocomplete_for_customer.errors.on(:customer)
+    assert @autocomplete_for_customer.errors[:customer_name].any?
+    assert @autocomplete_for_customer.errors[:customer_code].empty?
+    assert @autocomplete_for_customer.errors[:customer].empty?
   end
 
   test "allow_nil with blank name" do
