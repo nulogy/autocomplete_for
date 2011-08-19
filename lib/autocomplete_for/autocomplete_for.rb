@@ -79,16 +79,16 @@ module AutocompleteFor
       unless allow_nil 
         # we must make sure that the validate_by_customer validation runs
         # after ALL validations on autocomplete fields
-        skip_callback :validate, :by, :"#{association}"
+
         validate :"validate_by_#{association}"
-        
+
         unless instance_methods.include?("validate_by_#{association}")
 
           # def validate_by_customer
           #   self.errors.add_on_blank(:customer) unless @@customer_autocompolete_error_fields.any? {|ef| self.errors[ef]}
           # end
           define_method(:"validate_by_#{association}") do
-            self.errors.add_on_blank(:"#{association}") unless self.class.instance_variable_get(error_fields_name).any? {|ef| self.errors[ef]}
+            self.errors.add_on_blank(:"#{association}") unless self.class.instance_variable_get(error_fields_name).any? {|ef| self.errors[ef].any? }
           end
         end
       end
