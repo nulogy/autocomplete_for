@@ -79,6 +79,7 @@ module AutocompleteFor
       unless allow_nil 
         # we must make sure that the validate_by_customer validation runs
         # after ALL validations on autocomplete fields
+        #skip_callback :validate, :by, :"#{association}"
 
         validate :"validate_by_#{association}"
 

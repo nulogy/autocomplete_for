@@ -67,7 +67,7 @@ class AutocompleteForTest < ActiveSupport::TestCase
     @autocomplete_for_vendor.update_attributes :vendor_name => nil 
 
     assert_nil @autocomplete_for_vendor.vendor
-    assert @autocomplete_for_vendor.errors[:vendor].any?
+    assert_equal 1, @autocomplete_for_vendor.errors[:vendor].size, @autocomplete_for_vendor.errors[:vendor]
     assert @autocomplete_for_vendor.errors[:vendor_code].empty?
     assert @autocomplete_for_vendor.errors[:vendor_name].empty?
   end
