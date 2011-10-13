@@ -14,6 +14,9 @@ begin
     s.authors = ["Sean Kirby"]
     s.add_dependency('activerecord', '~> 3.0.0')
     s.add_development_dependency('pg')
+    s.add_development_dependency('rake')
+    s.add_development_dependency('jeweler')
+    s.add_development_dependency('gemcutter')
   end
   Jeweler::GemcutterTasks.new
 

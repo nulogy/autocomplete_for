@@ -1,3 +1,10 @@
+PATH
+  remote: .
+  specs:
+    autocomplete_for (0.2.0)
+      activerecord (~> 3.0.0)
+      autocomplete_for
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -28,7 +35,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (~> 3.0.10)
+  autocomplete_for!
   gemcutter
   jeweler
   pg
