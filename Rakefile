@@ -13,10 +13,10 @@ begin
     s.rubyforge_project = 'autocomplete_for'
     s.authors = ["Sean Kirby"]
     s.add_dependency('activerecord', '~> 3.0.0')
-    s.add_development_dependency('pg')
-    s.add_development_dependency('rake')
-    s.add_development_dependency('jeweler')
-    s.add_development_dependency('gemcutter')
+    s.add_development_dependency('pg', '>= 0')
+    s.add_development_dependency('rake', '>= 0')
+    s.add_development_dependency('jeweler', '>= 0')
+    s.add_development_dependency('gemcutter', '>= 0')
   end
   Jeweler::GemcutterTasks.new
 
