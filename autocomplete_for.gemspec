@@ -21,7 +21,6 @@ Gem::Specification.new do |s|
     "MIT-LICENSE",
     "README.markdown",
     "Rakefile",
-    "VERSION",
     "autocomplete_for.gemspec",
     "lib/autocomplete_for.rb",
     "lib/autocomplete_for/autocomplete_for.rb",
