@@ -1,28 +1,8 @@
 require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
-
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |s|
-    s.name = "autocomplete_for"
-    s.summary = "Model-side logic for autocompleting belongs_to associations"
-    s.description = "Model-side logic for autocompleting belongs_to associations"
-    s.email = "sskirby@gmail.com"
-    s.homepage = "http://github.com/sskirby/autocomplete_for"
-    s.rubyforge_project = 'autocomplete_for'
-    s.authors = ["Sean Kirby"]
-    s.add_dependency('activerecord', '~> 3.0.0')
-    s.add_development_dependency('pg', '>= 0')
-    s.add_development_dependency('rake', '>= 0')
-    s.add_development_dependency('jeweler', '>= 0')
-    s.add_development_dependency('gemcutter', '>= 0')
-  end
-  Jeweler::GemcutterTasks.new
-
-rescue LoadError
-  puts "Jeweler or Gemcutter not available. Install it with: gem install jeweler gemcutter"
-end
+require 'bundler'
+Bundler::GemHelper.install_tasks
 
 desc 'Default: run unit tests.'
 task :default => :test

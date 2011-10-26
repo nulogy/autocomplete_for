@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{autocomplete_for}
-  s.version = "0.2.2"
+  s.name = "autocomplete_for"
+  s.version = "0.2.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Sean Kirby"]
-  s.date = %q{2011-10-13}
-  s.description = %q{Model-side logic for autocompleting belongs_to associations}
-  s.email = %q{sskirby@gmail.com}
+  s.date = "2011-10-26"
+  s.description = "Model-side logic for autocompleting belongs_to associations"
+  s.email = "sskirby@gmail.com"
   s.extra_rdoc_files = [
     "README.markdown"
   ]
@@ -31,38 +31,28 @@ Gem::Specification.new do |s|
     "test/schema.rb",
     "test/test_helper.rb"
   ]
-  s.homepage = %q{http://github.com/sskirby/autocomplete_for}
+  s.homepage = "http://github.com/nulogy/autocomplete_for"
   s.require_paths = ["lib"]
-  s.rubyforge_project = %q{autocomplete_for}
-  s.rubygems_version = %q{1.3.7}
-  s.summary = %q{Model-side logic for autocompleting belongs_to associations}
+  s.rubyforge_project = "autocomplete_for"
+  s.rubygems_version = "1.8.10"
+  s.summary = "Model-side logic for autocompleting belongs_to associations"
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<autocomplete_for>, [">= 0"])
-      s.add_runtime_dependency(%q<activerecord>, ["~> 3.0.0"])
       s.add_development_dependency(%q<pg>, [">= 0"])
       s.add_development_dependency(%q<rake>, [">= 0"])
-      s.add_development_dependency(%q<jeweler>, [">= 0"])
-      s.add_development_dependency(%q<gemcutter>, [">= 0"])
+      s.add_runtime_dependency(%q<activerecord>, ["~> 3.0"])
     else
-      s.add_dependency(%q<autocomplete_for>, [">= 0"])
-      s.add_dependency(%q<activerecord>, ["~> 3.0.0"])
       s.add_dependency(%q<pg>, [">= 0"])
       s.add_dependency(%q<rake>, [">= 0"])
-      s.add_dependency(%q<jeweler>, [">= 0"])
-      s.add_dependency(%q<gemcutter>, [">= 0"])
+      s.add_dependency(%q<activerecord>, ["~> 3.0"])
     end
   else
-    s.add_dependency(%q<autocomplete_for>, [">= 0"])
-    s.add_dependency(%q<activerecord>, ["~> 3.0.0"])
     s.add_dependency(%q<pg>, [">= 0"])
     s.add_dependency(%q<rake>, [">= 0"])
-    s.add_dependency(%q<jeweler>, [">= 0"])
-    s.add_dependency(%q<gemcutter>, [">= 0"])
+    s.add_dependency(%q<activerecord>, ["~> 3.0"])
   end
 end
 
