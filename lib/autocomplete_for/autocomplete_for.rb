@@ -38,7 +38,7 @@ module AutocompleteFor
         return unless instance_variable_get(:"@#{association}_#{field}") 
         return if send(association.to_sym)
         return if self.class.instance_variable_get(:"@#{association}_#{field}_allow_nil") && instance_variable_get(:"@#{association}_#{field}") == ""
-        self.errors.add(:"#{association}_#{field}", "\"#{instance_variable_get(:"@#{association}_#{field}")}\" does not exist")
+        self.errors.add(:"#{association}_#{field}", :does_not_exist)
       end
 
       # Resolve the autocompleted name to an actual entity
