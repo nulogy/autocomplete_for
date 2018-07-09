@@ -1,8 +1,9 @@
 require 'rubygems'
+require 'active_support'
 require 'active_support/core_ext'
 require 'active_support/test_case'
-
-require 'test/unit' 
+require 'yaml'
+require 'minitest' 
 require 'active_record'
 
 def load_schema 
