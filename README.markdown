@@ -1,3 +1,9 @@
+## Current Version
+This version was introduced to support Rails 5. It depends on activerecord ~> 5.0 and contains several large gem upgrades.
+This is not a backwards compatible upgrade, and introduces many breaking changes if there is no gem compatibility.
+
+For Rails 4 support please use: [v0.3.0](https://github.com/nulogy/autocomplete_for/tree/v0.3.0)
+
 AutocompleteFor
 ===============
 
@@ -36,5 +42,9 @@ Errors are generated automatically if the given information does not correspond 
     author = Author.create! :login => 'baz'
     post = Post.create :author_login => 'quux'
     puts post.errors[:author_login]               # will print an error message
+
+### Running the tests
+You can run the unit tests using `bundle exec rake test`; it assumes you have a Postgres database
+configured as per `test/database.yml` (e.g. credentials are valid, database exists).
 
 Copyright (c) 2010 Nulogy Corporation, released under the MIT license
