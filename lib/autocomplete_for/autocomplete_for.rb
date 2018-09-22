@@ -22,7 +22,7 @@ module AutocompleteFor
       # def customer_name
       #   self.customer_to.name : @customer_name
       # end
-      define_method(:"#{association}_#{field}") do 
+      define_method(:"#{association}_#{field}") do
         send(association.to_sym) ? send(association.to_sym).send(field.to_sym) : instance_variable_get(:"@#{association}_#{field}")
       end
 
@@ -30,12 +30,12 @@ module AutocompleteFor
       # def validate_customer_by_name
       #   return unless @customer_name
       #   return if self.customer
-      #   return if @@customer_name_allow_nil && @customer_name == "" 
+      #   return if @@customer_name_allow_nil && @customer_name == ""
       #
-      #   self.errors.add :customer_name, "#{@customer_name} does not exist" 
+      #   self.errors.add :customer_name, "#{@customer_name} does not exist"
       # end
-      define_method(:"validate_#{association}_by_#{field}") do 
-        return unless instance_variable_get(:"@#{association}_#{field}") 
+      define_method(:"validate_#{association}_by_#{field}") do
+        return unless instance_variable_get(:"@#{association}_#{field}")
         return if send(association.to_sym)
         return if self.class.instance_variable_get(:"@#{association}_#{field}_allow_nil") && instance_variable_get(:"@#{association}_#{field}") == ""
         self.errors.add(:"#{association}_#{field}", :does_not_exist)
@@ -76,7 +76,7 @@ module AutocompleteFor
 
       instance_variable_set(error_fields_name, error_fields)
 
-      unless allow_nil 
+      unless allow_nil
         # we must make sure that the validate_by_customer validation runs
         # after ALL validations on autocomplete fields
         #skip_callback :validate, :by, :"#{association}"
@@ -89,7 +89,7 @@ module AutocompleteFor
           #   self.errors.add_on_blank(:customer) unless @@customer_autocompolete_error_fields.any? {|ef| self.errors[ef]}
           # end
           define_method(:"validate_by_#{association}") do
-            self.errors.add_on_blank(:"#{association}") unless self.class.instance_variable_get(error_fields_name).any? {|ef| self.errors[ef].any? }
+            self.errors.add(:"#{association}", :empty) unless self.class.instance_variable_get(error_fields_name).any? {|ef| self.errors[ef].any? }
           end
         end
       end
