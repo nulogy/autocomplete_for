@@ -47,4 +47,4 @@ Errors are generated automatically if the given information does not correspond 
 You can run the unit tests using `bundle exec rake test`; it assumes you have a Postgres database
 configured as per `test/database.yml` (e.g. credentials are valid, database exists).
 
-Copyright (c) 2010 Nulogy Corporation, released under the MIT license
+Copyright (c) 2018 Nulogy Corporation, released under the MIT license
