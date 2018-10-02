@@ -1,4 +1,7 @@
 ## Current Version
+
+[![Build Status](https://travis-ci.org/nulogy/autocomplete_for.svg?branch=master)](https://travis-ci.org/nulogy/autocomplete_for)
+
 This version was introduced to support Rails 5. It depends on activerecord ~> 5.0 and contains several large gem upgrades.
 This is not a backwards compatible upgrade, and introduces many breaking changes if there is no gem compatibility.
 
