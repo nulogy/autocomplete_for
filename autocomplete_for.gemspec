@@ -53,5 +53,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rake>, [">= 0"])
     s.add_dependency(%q<activerecord>, ["~> 5.0"])
   end
+
+  s.add_development_dependency("rspec", "~> 3.8")
 end
 
