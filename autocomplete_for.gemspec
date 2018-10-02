@@ -42,16 +42,16 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<pg>, [">= 0"])
       s.add_development_dependency(%q<rake>, [">= 0"])
-      s.add_runtime_dependency(%q<activerecord>, ["~> 5.0"])
+      s.add_runtime_dependency(%q<activerecord>, ["~> 5.0.1"])
     else
       s.add_dependency(%q<pg>, [">= 0"])
       s.add_dependency(%q<rake>, [">= 0"])
-      s.add_dependency(%q<activerecord>, ["~> 5.0"])
+      s.add_dependency(%q<activerecord>, ["~> 5.0.1"])
     end
   else
     s.add_dependency(%q<pg>, [">= 0"])
     s.add_dependency(%q<rake>, [">= 0"])
-    s.add_dependency(%q<activerecord>, ["~> 5.0"])
+    s.add_dependency(%q<activerecord>, ["~> 5.0.1"])
   end
 
   s.add_development_dependency("rspec", "~> 3.8")
