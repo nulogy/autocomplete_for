@@ -1,6 +1,0 @@
-postgresql:
-  adapter: postgresql
-  database: autocomplete_for_plugin_test
-  username: test
-  password: pass 
-  host: localhost

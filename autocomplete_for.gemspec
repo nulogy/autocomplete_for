@@ -54,6 +54,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<activerecord>, ["~> 5.0.1"])
   end
 
-  s.add_development_dependency("rspec", "~> 3.8")
+  s.add_development_dependency("rails", "~> 5.0.1")
+  s.add_development_dependency("rspec-rails", "~> 3.8")
+  s.add_development_dependency("sqlite3", "~> 1.3")
 end
 

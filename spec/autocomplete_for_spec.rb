@@ -1,10 +1,8 @@
-require 'rspec'
-require_relative 'test_helper'
+require 'rails_helper'
+require 'spec_helper'
 require_relative '../lib/autocomplete_for'
 
 RSpec.describe "autocomplete_for" do
-  before(:all) { load_schema }
-
   before do
     Vendor.destroy_all
     Customer.destroy_all
