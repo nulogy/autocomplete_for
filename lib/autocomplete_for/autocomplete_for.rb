@@ -89,7 +89,7 @@ module AutocompleteFor
           #   self.errors.add_on_blank(:customer) unless @@customer_autocompolete_error_fields.any? {|ef| self.errors[ef]}
           # end
           define_method(:"validate_by_#{association}") do
-            self.errors.add(:"#{association}", :empty) unless self.class.instance_variable_get(error_fields_name).any? {|ef| self.errors[ef].any? }
+            self.errors.add_on_blank(:"#{association}") unless self.class.instance_variable_get(error_fields_name).any? {|ef| self.errors[ef].any? }
           end
         end
       end
