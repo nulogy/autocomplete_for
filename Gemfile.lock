@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    autocomplete_for (1.0.1)
+    autocomplete_for (1.0.2)
       activerecord (~> 5.0.1)
 
 GEM

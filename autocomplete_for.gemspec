@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "autocomplete_for"
-  s.version = "1.0.1"
+  s.version = "1.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Sean Kirby"]
@@ -23,12 +23,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "autocomplete_for.gemspec",
     "lib/autocomplete_for.rb",
-    "lib/autocomplete_for/autocomplete_for.rb",
-    "rails/init.rb",
-    "test/autocomplete_for_test.rb",
-    "test/database.yml",
-    "test/schema.rb",
-    "test/test_helper.rb"
+    "lib/autocomplete_for/autocomplete_for.rb"
   ]
   s.homepage = "http://github.com/nulogy/autocomplete_for"
   s.require_paths = ["lib"]
