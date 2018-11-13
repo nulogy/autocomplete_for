@@ -16,6 +16,7 @@ It works out-of-the-box with existing front-end autocompletion solutions because
 
 ### Example
 
+```ruby
     class Author < ActiveRecord::Base
       # has a login and open_id column
     end
@@ -33,18 +34,23 @@ It works out-of-the-box with existing front-end autocompletion solutions because
         self.author = Author.find(:first, :conditions => {:open_id => @author_open_id})
       end
     end
+```
 
 Using autocomplete_for in your models to set belongs_to associations:
 
+```ruby
     author = Author.create! :login => 'baz'
     post = Post.create! :author_login => 'baz'    # automatically finds the author with the login 'baz'
     puts post.author.login                        # will output 'baz'
+```
 
 Errors are generated automatically if the given information does not correspond to a valid model:
 
+```ruby
     author = Author.create! :login => 'baz'
     post = Post.create :author_login => 'quux'
     puts post.errors[:author_login]               # will print an error message
+```
 
 ### Running the tests
 You can run the unit tests using `bundle exec rake test`; it assumes you have a Postgres database
