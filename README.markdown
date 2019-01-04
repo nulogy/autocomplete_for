@@ -53,7 +53,6 @@ Errors are generated automatically if the given information does not correspond 
 ```
 
 ### Running the tests
-You can run the unit tests using `bundle exec rake test`; it assumes you have a Postgres database
-configured as per `test/database.yml` (e.g. credentials are valid, database exists).
+You can run the unit tests using `rake`
 
 Copyright (c) 2019 Nulogy Corporation, released under the MIT license
