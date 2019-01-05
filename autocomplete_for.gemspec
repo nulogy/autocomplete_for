@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.require_path = 'lib'
   s.rubyforge_project = '[none]'
-  s.required_rubygems_version = '>= 2.7'
+  s.required_rubygems_version = '>= 2.6'
 
   s.add_runtime_dependency 'activerecord', '> 5.0', '< 6.0'
 
