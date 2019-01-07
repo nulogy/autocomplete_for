@@ -22,13 +22,13 @@ Gem::Specification.new do |s|
   s.rubyforge_project = '[none]'
   s.required_rubygems_version = '>= 2.6'
 
-  s.add_runtime_dependency 'activerecord', '> 5.0', '< 6.0'
+  s.add_runtime_dependency 'activerecord', '>= 5.0', '< 6.0'
 
-  s.add_development_dependency 'rails', '~> 5.0', '< 6.0'
-  s.add_development_dependency 'rake', '~> 12.0'
-  s.add_development_dependency 'rspec-rails', '~> 3.8'
-  s.add_development_dependency 'rubocop', '~> 0.61'
-  s.add_development_dependency 'sqlite3', '~> 1.3'
+  s.add_development_dependency 'rails', '>= 5.0', '< 6.0'
+  s.add_development_dependency 'rake', '>= 12.0'
+  s.add_development_dependency 'rspec-rails', '>= 3.8'
+  s.add_development_dependency 'rubocop', '>= 0.61'
+  s.add_development_dependency 'sqlite3', '>= 1.3'
 
   s.licenses = ['MIT', 'GPL-3.0']
 end
