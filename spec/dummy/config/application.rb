@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative 'boot'
+require_relative "boot"
 
-require 'rails/all'
+require "rails/all"
 
 Bundler.require(*Rails.groups)
-require 'autocomplete_for'
+require "autocomplete_for"
 
 module Dummy
   class Application < Rails::Application

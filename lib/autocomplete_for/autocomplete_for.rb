@@ -39,7 +39,7 @@ module AutocompleteFor
       define_method(:"validate_#{association}_by_#{field}") do
         return unless instance_variable_get(:"@#{association}_#{field}")
         return if send(association.to_sym)
-        return if self.class.instance_variable_get(:"@#{association}_#{field}_allow_nil") && instance_variable_get(:"@#{association}_#{field}") == ''
+        return if self.class.instance_variable_get(:"@#{association}_#{field}_allow_nil") && instance_variable_get(:"@#{association}_#{field}") == ""
 
         errors.add(:"#{association}_#{field}", :does_not_exist)
       end
@@ -65,7 +65,7 @@ module AutocompleteFor
       define_method(:"associate_#{association}_by_#{field}") do
         return unless instance_variable_get(:"@#{association}_#{field}")
 
-        if instance_variable_get(:"@#{association}_#{field}") == ''
+        if instance_variable_get(:"@#{association}_#{field}") == ""
           send(:"#{association}=", nil)
           return
         end
