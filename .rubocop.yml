@@ -1,19 +1,11 @@
-Metrics/AbcSize:
-  Enabled: false
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.6
 
-Metrics/BlockLength:
-  Enabled: false
+Layout/LineLength:
+  Max: 120
 
-Metrics/CyclomaticComplexity:
-  Enabled: false
-
-Metrics/LineLength:
-  Enabled: false
-
-Metrics/MethodLength:
-  Enabled: false
-
-Metrics/PerceivedComplexity:
+Metrics:
   Enabled: false
 
 Style/Documentation:
@@ -21,3 +13,6 @@ Style/Documentation:
 
 Style/GuardClause:
   Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes

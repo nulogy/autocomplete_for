@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-require 'spec_helper'
-require_relative '../lib/autocomplete_for'
+require "rails_helper"
+require "spec_helper"
+require_relative "../lib/autocomplete_for"
 
-RSpec.describe 'autocomplete_for' do
+RSpec.describe "autocomplete_for" do
   before do
     Vendor.destroy_all
     Customer.destroy_all
@@ -12,18 +12,18 @@ RSpec.describe 'autocomplete_for' do
 
   let(:autocomplete_for_customer) { AutoCompleteForCustomerTestModel.new }
   let(:autocomplete_for_vendor) { AutoCompleteForVendorTestModel.new }
-  let(:customer) { Customer.create!(name: 'Customer Name', code: 'Customer Code') }
-  let(:vendor_nil_code) { Vendor.create!(name: 'Nil Code') }
-  let(:vendor) { Vendor.create!(name: 'Vendor Name', code: 'Vendor Code') }
+  let(:customer) { Customer.create!(name: "Customer Name", code: "Customer Code") }
+  let(:vendor_nil_code) { Vendor.create!(name: "Nil Code") }
+  let(:vendor) { Vendor.create!(name: "Vendor Name", code: "Vendor Code") }
 
-  it 'with valid name' do
+  it "with valid name" do
     autocomplete_for_vendor.update!(vendor_name: vendor.name)
 
     expect(autocomplete_for_vendor.vendor).to eq(vendor)
   end
 
-  it 'with invalid name' do
-    autocomplete_for_vendor.update(vendor_name: 'Not a Vendor Name')
+  it "with invalid name" do
+    autocomplete_for_vendor.update(vendor_name: "Not a Vendor Name")
 
     expect(autocomplete_for_vendor.vendor).to eq(nil)
     expect(autocomplete_for_vendor.errors[:vendor_name]).to be_present
@@ -31,8 +31,8 @@ RSpec.describe 'autocomplete_for' do
     expect(autocomplete_for_vendor.errors[:vendor]).to be_empty
   end
 
-  it 'with blank name' do
-    autocomplete_for_vendor.update(vendor_name: '')
+  it "with blank name" do
+    autocomplete_for_vendor.update(vendor_name: "")
 
     expect(autocomplete_for_vendor.vendor).to eq(nil)
     expect(autocomplete_for_vendor.errors[:vendor_name]).to be_present
@@ -40,7 +40,7 @@ RSpec.describe 'autocomplete_for' do
     expect(autocomplete_for_vendor.errors[:vendor]).to be_empty
   end
 
-  it 'with nil name' do
+  it "with nil name" do
     autocomplete_for_vendor.update(vendor_name: nil)
 
     expect(autocomplete_for_vendor.vendor).to eq(nil)
@@ -49,11 +49,11 @@ RSpec.describe 'autocomplete_for' do
     expect(autocomplete_for_vendor.errors[:vendor_name]).to be_empty
   end
 
-  it 'should clear existing association' do
+  it "should clear existing association" do
     autocomplete_for_vendor.update!(vendor: vendor)
     expect(autocomplete_for_vendor.vendor).to eq(vendor)
 
-    autocomplete_for_vendor.update(vendor_name: '')
+    autocomplete_for_vendor.update(vendor_name: "")
     expect(autocomplete_for_vendor.vendor).to eq(nil)
     expect(autocomplete_for_vendor.errors[:vendor_name]).to be_present
 
@@ -61,7 +61,7 @@ RSpec.describe 'autocomplete_for' do
     expect(autocomplete_for_vendor.errors[:vendor]).to be_empty
   end
 
-  it 'should not clear existing association' do
+  it "should not clear existing association" do
     autocomplete_for_vendor.update!(vendor: vendor)
     expect(autocomplete_for_vendor.vendor).to eq(vendor)
 
@@ -69,11 +69,11 @@ RSpec.describe 'autocomplete_for' do
     expect(autocomplete_for_vendor.vendor).to eq(vendor)
   end
 
-  it 'should clear existing association using field that can be nil' do
-    autocomplete_for_vendor.update_attributes! vendor: vendor
+  it "should clear existing association using field that can be nil" do
+    autocomplete_for_vendor.update! vendor: vendor
     expect(autocomplete_for_vendor.vendor).to eq(vendor)
 
-    autocomplete_for_vendor.update_attributes vendor_code: ''
+    autocomplete_for_vendor.update vendor_code: ""
     expect(autocomplete_for_vendor.vendor).to eq(nil)
     expect(autocomplete_for_vendor.errors[:vendor_code]).to be_present
 
@@ -81,14 +81,14 @@ RSpec.describe 'autocomplete_for' do
     expect(autocomplete_for_vendor.errors[:vendor]).to be_empty
   end
 
-  it 'allow_nil with valid name' do
-    autocomplete_for_customer.update_attributes! customer_name: customer.name
+  it "allow_nil with valid name" do
+    autocomplete_for_customer.update! customer_name: customer.name
 
     expect(autocomplete_for_customer.customer).to eq(customer)
   end
 
-  it 'allow_nil with invalid name' do
-    autocomplete_for_customer.update_attributes customer_name: 'Not A Customer Name'
+  it "allow_nil with invalid name" do
+    autocomplete_for_customer.update customer_name: "Not A Customer Name"
 
     expect(autocomplete_for_customer.customer).to eq(nil)
     expect(autocomplete_for_customer.errors[:customer_name]).to be_present
@@ -96,31 +96,31 @@ RSpec.describe 'autocomplete_for' do
     expect(autocomplete_for_customer.errors[:customer]).to be_empty
   end
 
-  it 'allow_nil with blank name' do
-    autocomplete_for_customer.update_attributes! customer_name: ''
+  it "allow_nil with blank name" do
+    autocomplete_for_customer.update! customer_name: ""
 
     expect(autocomplete_for_customer.customer).to eq(nil)
   end
 
-  it 'allow_nil with nil name' do
-    autocomplete_for_customer.update_attributes! customer_name: nil
+  it "allow_nil with nil name" do
+    autocomplete_for_customer.update! customer_name: nil
 
     expect(autocomplete_for_customer.customer).to eq(nil)
   end
 
-  it 'allow_nil should clear existing association' do
-    autocomplete_for_customer.update_attributes! customer: customer
+  it "allow_nil should clear existing association" do
+    autocomplete_for_customer.update! customer: customer
     expect(autocomplete_for_customer.customer).to eq(customer)
 
-    autocomplete_for_customer.update_attributes! customer_name: ''
+    autocomplete_for_customer.update! customer_name: ""
     expect(autocomplete_for_customer.customer).to eq(nil)
   end
 
-  it 'allow_nil should not clear existing association' do
-    autocomplete_for_customer.update_attributes! customer: customer
+  it "allow_nil should not clear existing association" do
+    autocomplete_for_customer.update! customer: customer
     expect(autocomplete_for_customer.customer).to eq(customer)
 
-    autocomplete_for_customer.update_attributes! customer_name: nil
+    autocomplete_for_customer.update! customer_name: nil
     expect(autocomplete_for_customer.customer).to eq(customer)
   end
 
