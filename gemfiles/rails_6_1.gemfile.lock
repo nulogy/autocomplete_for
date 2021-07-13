@@ -1,5 +1,5 @@
 PATH
-  remote: .
+  remote: ..
   specs:
     autocomplete_for (1.2)
       activerecord (>= 5.1, < 7.0)
@@ -181,7 +181,7 @@ PLATFORMS
 DEPENDENCIES
   appraisal (~> 2.4)
   autocomplete_for!
-  rails (>= 6.0, < 7.0)
+  rails (= 6.1.4)
   rake (~> 13.0)
   rspec-rails (~> 5.0)
   rubocop (~> 1.18)

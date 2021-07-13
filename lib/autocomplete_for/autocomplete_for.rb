@@ -104,4 +104,4 @@ module AutocompleteFor
   end
 end
 
-ActiveRecord::Base.send(:include, AutocompleteFor)
+ActiveRecord::Base.send(:include, AutocompleteFor) # rubocop:disable Lint/SendWithMixinArgument

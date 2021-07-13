@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "autocomplete_for/autocomplete_for.rb"
-require "autocomplete_for/version.rb"
+require "autocomplete_for/autocomplete_for"
+require "autocomplete_for/version"
 
 module AutocompleteFor
 end

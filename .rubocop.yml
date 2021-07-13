@@ -3,7 +3,7 @@ AllCops:
   TargetRubyVersion: 2.6
 
 Layout/LineLength:
-  Max: 120
+  Enabled: false
 
 Metrics:
   Enabled: false
@@ -11,8 +11,14 @@ Metrics:
 Style/Documentation:
   Enabled: false
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Style/GuardClause:
   Enabled: false
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+
+Style/SymbolArray:
+  Enabled: false
