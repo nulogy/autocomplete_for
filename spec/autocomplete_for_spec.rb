@@ -124,6 +124,7 @@ RSpec.describe "autocomplete_for" do
     expect(autocomplete_for_customer.customer).to eq(customer)
   end
 
+  # rubocop:disable Lint/ConstantDefinitionInBlock
   class Vendor < ActiveRecord::Base; end
   class Customer < ActiveRecord::Base; end
 
@@ -148,4 +149,5 @@ RSpec.describe "autocomplete_for" do
       self.vendor = Vendor.where(code: vendor_code).first
     end
   end
+  # rubocop:enable Lint/ConstantDefinitionInBlock
 end
