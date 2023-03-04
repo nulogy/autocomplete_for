@@ -5,8 +5,6 @@
 This version was introduced to support Rails 5. It depends on activerecord ~> 5.0 and contains several large gem upgrades.
 This is not a backwards compatible upgrade, and introduces many breaking changes if there is no gem compatibility.
 
-For Rails 4 support please use: [v0.3.0](https://github.com/nulogy/autocomplete_for/tree/v0.3.0)
-
 AutocompleteFor
 ===============
 
@@ -54,5 +52,3 @@ Errors are generated automatically if the given information does not correspond 
 
 ### Running the tests
 You can run the unit tests using `rake`
-
-Copyright (c) 2019 Nulogy Corporation, released under the MIT license

@@ -6,8 +6,7 @@ module AutocompleteFor
   end
 
   module ClassMethods
-    def autocomplete_for(association, field, options = {}, &block)
-      allow_nil = options[:allow_nil] || false
+    def autocomplete_for(association, field, allow_nil: false, &block)
       validate :"validate_#{association}_by_#{field}"
       before_validation :"associate_#{association}_by_#{field}"
       instance_variable_set(:"@#{association}_#{field}_allow_nil", allow_nil)
@@ -96,7 +95,7 @@ module AutocompleteFor
             return if self.class.instance_variable_get(error_fields_name).any? { |ef| errors[ef].any? }
             return unless send(:read_attribute_for_validation, association.to_sym).blank?
 
-            errors.add(association.to_sym, :blank, options)
+            errors.add(association.to_sym, :blank)
           end
         end
       end
@@ -104,4 +103,4 @@ module AutocompleteFor
   end
 end
 
-ActiveRecord::Base.send(:include, AutocompleteFor)
+ActiveRecord::Base.include(AutocompleteFor)
