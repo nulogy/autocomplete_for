@@ -1,9 +1,13 @@
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 3.0
+  TargetRubyVersion: 3.1
   Exclude:
+    - "gemfiles/*.lock"
     - "spec/rails_helper.rb"
     - "spec/dummy/**/*"
+
+Gemspec/DevelopmentDependencies:
+  EnforcedStyle: gemspec
 
 Layout/LineLength:
   Enabled: false
@@ -19,6 +23,10 @@ Style/FrozenStringLiteralComment:
 
 Style/GuardClause:
   Enabled: false
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+  EnforcedStyle: ruby19
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes

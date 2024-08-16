@@ -8,7 +8,7 @@ require "autocomplete_for/version"
 Gem::Specification.new do |s|
   s.name = "autocomplete_for"
   s.version = AutocompleteFor::VERSION
-  s.licenses = ["MIT", "GPL-3.0"]
+  s.license = "MIT"
   s.summary = "Autocomplete for models"
   s.description = "Model-side logic for autocompleting belongs_to associations"
   s.files = Dir.glob("lib/**/*") + %w[README.markdown MIT-LICENSE]
@@ -19,21 +19,20 @@ Gem::Specification.new do |s|
   s.metadata = {
     "homepage_uri" => "https://github.com/nulogy/autocomplete_for",
     "changelog_uri" => "https://github.com/nulogy/autocomplete_for/blob/master/CHANGELOG.md",
-    "source_code_uri" => "https://github.com/nulogy/autocomplete_for",
     "bug_tracker_uri" => "https://github.com/nulogy/autocomplete_for/issues",
     "rubygems_mfa_required" => "true"
   }
 
   s.platform = Gem::Platform::RUBY
   s.require_path = "lib"
-  s.required_ruby_version = ">= 3.0"
+  s.required_ruby_version = ">= 3.1"
 
-  s.add_runtime_dependency "activerecord", ">= 6.1", "< 7.1"
+  s.add_dependency "activerecord", ">= 7.0", "< 7.2"
 
-  s.add_development_dependency "appraisal", "~> 2.4"
-  s.add_development_dependency "rails", ">= 6.1", "< 7.1"
-  s.add_development_dependency "rake", "~> 13.0"
-  s.add_development_dependency "rspec-rails", "~> 6.0"
-  s.add_development_dependency "rubocop", "~> 1.48"
-  s.add_development_dependency "sqlite3", "~> 1.6"
+  s.add_development_dependency "appraisal", "~> 2.5"
+  s.add_development_dependency "rails", ">= 7.0", "< 7.2"
+  s.add_development_dependency "rake", "~> 13.2"
+  s.add_development_dependency "rspec-rails", "~> 6.1"
+  s.add_development_dependency "rubocop", "~> 1.65"
+  s.add_development_dependency "sqlite3", "~> 1.4"
 end
