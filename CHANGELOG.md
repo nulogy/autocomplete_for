@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6] - 2025-06-20
+### Added
+- Support Rails 7.2
+- Support Ruby 3.3
+### Removed
+- Drop support for Rails 7.0
+- Drop support for Ruby 3.1 and Ruby 3.2
+
 ## [1.5] - 2024-08-16
 ### Added
 - Support Rails 7.1

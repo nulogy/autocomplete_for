@@ -2,7 +2,9 @@
 *.swp
 .rvmrc
 Gemfile.lock
+gemfiles/*.gemfile.lock
 pkg
 rdoc
-spec/dummy/db/test.sqlite3
+/spec/dummy/db/test.sqlite3
+/spec/dummy/tmp/local_secret.txt
 tags

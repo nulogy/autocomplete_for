@@ -1,6 +1,7 @@
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 3.1
+  SuggestExtensions: false
+  TargetRubyVersion: 3.3
   Exclude:
     - "gemfiles/*.lock"
     - "spec/rails_helper.rb"

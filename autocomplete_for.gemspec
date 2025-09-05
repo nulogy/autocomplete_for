@@ -25,14 +25,7 @@ Gem::Specification.new do |s|
 
   s.platform = Gem::Platform::RUBY
   s.require_path = "lib"
-  s.required_ruby_version = ">= 3.1"
+  s.required_ruby_version = ">= 3.3"
 
-  s.add_dependency "activerecord", ">= 7.0", "< 7.2"
-
-  s.add_development_dependency "appraisal", "~> 2.5"
-  s.add_development_dependency "rails", ">= 7.0", "< 7.2"
-  s.add_development_dependency "rake", "~> 13.2"
-  s.add_development_dependency "rspec-rails", "~> 6.1"
-  s.add_development_dependency "rubocop", "~> 1.65"
-  s.add_development_dependency "sqlite3", "~> 1.4"
+  s.add_dependency "activerecord", ">= 7.1", "< 8.0"
 end
