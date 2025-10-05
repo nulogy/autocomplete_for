@@ -27,5 +27,5 @@ Gem::Specification.new do |s|
   s.require_path = "lib"
   s.required_ruby_version = ">= 3.3"
 
-  s.add_dependency "activerecord", ">= 7.1", "< 8.0"
+  s.add_dependency "activerecord", ">= 7.2", "< 8.1"
 end
